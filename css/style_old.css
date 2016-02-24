@@ -1,0 +1,810 @@
+@import url(reset.css);
+@font-face {
+  font-family: "MyriadProRegular";
+  src: url("fonts/MyriadProRegular/MyriadProRegular.eot");
+  src: url("fonts/MyriadProRegular/MyriadProRegular.eot?#iefix") format("embedded-opentype"), url("fonts/MyriadProRegular/MyriadProRegular.woff") format("woff"), url("fonts/MyriadProRegular/MyriadProRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+body {
+  background: #c9e0ee; }
+
+.clear {
+  clear: both; }
+
+.wrapper {
+  width: 835px;
+  margin: 0 auto; }
+  .wrapper .topMenu {
+    overflow: hidden;
+    background: #fff; }
+    .wrapper .topMenu div {
+      float: left;
+      width: 20%; }
+      .wrapper .topMenu div h1 {
+        font-size: 12px;
+        color: #00a5d2;
+        font-family: "MyriadProRegular", sans-serif;
+        text-align: center;
+        padding-top: 20px;
+        line-height: 14px;
+        padding-right: 15px; }
+      .wrapper .topMenu div p {
+        font-size: 10px;
+        font-family: "MyriadProRegular", sans-serif;
+        color: #b4afa9;
+        text-align: center;
+        line-height: 12px;
+        padding-right: 15px; }
+      .wrapper .topMenu div a {
+        text-decoration: none;
+        display: block; }
+    .wrapper .topMenu img {
+      float: left;
+      padding: 2px 0 2px 5px; }
+    .wrapper .topMenu div.logo {
+      width: 255px; }
+    .wrapper .topMenu li.zakaz {
+      width: 255px;
+      float: left;
+      margin-left: 20px; }
+      .wrapper .topMenu li.zakaz a {
+        text-decoration: none;
+        display: block;
+        width: 210px;
+        height: 70px;
+        text-align: center;
+        line-height: 70px;
+        font-size: 21px;
+        color: #958f8a;
+        background: url("../img/button_top_menu.png") no-repeat center center;
+        margin-left: 10%; }
+    .wrapper .topMenu li.glavnay, .wrapper .topMenu li.library {
+      text-align: center;
+      padding: 30px 0 30px 0;
+      width: 130px;
+      margin-left: 3%;
+      font-size: 21px;
+      text-transform: uppercase;
+      float: left; }
+      .wrapper .topMenu li.glavnay a, .wrapper .topMenu li.library a {
+        color: #958f8a;
+        font-family: "MyriadProRegular", sans-serif;
+        display: block;
+        padding: 0 0 5px 0;
+        width: 95px;
+        text-decoration: none;
+        border-bottom: 2px solid #fff; }
+      .wrapper .topMenu li.glavnay a:hover, .wrapper .topMenu li.library a:hover {
+        border-bottom: 2px solid #bcddec !important; }
+      .wrapper .topMenu li.glavnay a.active, .wrapper .topMenu li.library a.active {
+        border-bottom: 2px solid #bcddec !important; }
+    .wrapper .topMenu li.library {
+      margin-left: 2%; }
+      .wrapper .topMenu li.library a {
+        width: 125px; }
+
+li.glavnay a:hover, li.library a:hover {
+  border-bottom: 2px solid red !important; }
+
+.info {
+  overflow: hidden; }
+  .info div {
+    float: left;
+    text-align: center;
+    padding: 5px 1% 5px 1%;
+    border-right: 2px solid #fff;
+    height: 100px; }
+    .info div h3 {
+      color: #f2a753;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 100% !important; }
+    .info div p {
+      font-size: 12px;
+      color: #fff;
+      margin-top: 8px;
+      line-height: 15px;
+      width: 100% !important; }
+  .info :first-child {
+    width: 17%; }
+  .info :nth-child(2) {
+    width: 18%; }
+  .info :nth-child(3) {
+    width: 18%; }
+  .info :nth-child(4) {
+    width: 20%; }
+  .info :last-child {
+    width: 16%;
+    border: none !important; }
+
+.top_search2 ul.top_form li {
+  display: inline-block; }
+
+.top_search2 ul.top_form {
+  padding: 5px 0;
+  text-align: center; }
+  .top_search2 ul.top_form input {
+    height: 32px;
+    display: block;
+    width: 44px;
+    float: left;
+    background: #fff;
+    color: #008fd3;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    cursor: pointer; }
+  .top_search2 ul.top_form button {
+    width: 100px;
+    height: 34px;
+    background: #fff;
+    color: #008fd3;
+    text-transform: uppercase;
+    border: 2px solid #97cfd2;
+    display: block;
+    cursor: pointer;
+    float: left;
+    padding: 5px 0; }
+  .top_search2 ul.top_form select {
+    float: left; }
+  .top_search2 ul.top_form span.text {
+    display: block;
+    
+    height: 29px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 29px;
+    color: #ffffff;
+    font-family: 'PT Sans Narrow','Arial',sans-serif; }
+
+li.span {
+  overflow: hidden; }
+
+li.reset {
+  overflow: hidden; }
+
+.top_search2 {
+  padding: 5px;
+  width: 90%;
+  margin: 0 auto !important;
+  border: 2px solid #fff; }
+
+.in_searchh2 {
+  padding: 20px 42px;
+  background: #008fd3; }
+
+.big_search {
+  margin-top: 30px; }
+  .big_search button {
+    display: block;
+    width: 205px;
+    
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    background: #008fd3;
+    padding:8px 0;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'PT Sans Narrow','Arial',sans-serif;
+    font-size: 15px;
+    cursor: pointer; }
+
+.bottom_search {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  display: none; }
+  .bottom_search div.left_bottom_search {
+    width: 50%;
+    display: inline-block; }
+  .bottom_search div.right_bottom_search {
+    width: 50%;
+    float: right;
+    display: inline-block; }
+
+.left_second {
+  margin-top: 20px; }
+
+.right_bottom_search ul li {
+  float: right; }
+
+.second_submit {
+  width: 200px;
+  height: 34px;
+  font-family: 'PT Sans Narrow','Arial',sans-serif;
+  font-size: 15px;
+  border: 2px solid #97cfd2;
+  cursor: pointer;
+  color: #008fd3;
+  text-transform: uppercase; }
+
+.main_content {
+  width: 100%;
+  background: #fff; }
+  .main_content div.in_main_content {
+    overflow: hidden;
+    width: 100%; }
+    .main_content div.in_main_content div.in_main_content_left {
+      width: 60%;
+      float: left;
+      text-align: center;
+      padding: 2% 5%;
+      display: inline-block;
+      border-right: 1px solid #008ac4; }
+      .main_content div.in_main_content div.in_main_content_left div.zagolovok {
+        border-bottom: 1px solid #008fd3;
+        padding: 0 0 30px 0;
+        text-align: right; }
+        .main_content div.in_main_content div.in_main_content_left div.zagolovok h1 {
+          font-size: 24px;
+          color: #008fd3;
+          font-family: 'PT Sans Narrow','Arial',sans-serif;
+          text-transform: uppercase;
+          padding: 5px;
+          display: inline-block;
+          margin-right: 40px; }
+        .main_content div.in_main_content div.in_main_content_left div.zagolovok form {
+          display: inline-block;
+          float: right; }
+        .main_content div.in_main_content div.in_main_content_left div.zagolovok input {
+          border: none;
+          width: 150px;
+          height: 35px;
+          background: #d9ebf4;
+          font-family: 'PT Sans Narrow','Arial',sans-serif;
+          color: #0092d5; }
+    .main_content div.in_main_content div.in_main_content_right {
+      width: 30%;
+      float: right;
+      display: inline-block; }
+
+.fed_center {
+  overflow: hidden;
+  border-bottom: 1px solid #008fd3;
+  padding: 20px 0 30px 0; }
+  .fed_center .logo_center {
+    width: 25%;
+    float: left; }
+    .fed_center .logo_center h3 {
+      font-family: "MyriadProRegular", sans-serif;
+      font-size: 12px;
+      color: #55504b;
+      text-align: center;
+      padding: 8px 0 10px 0; }
+    .fed_center .logo_center p {
+      text-align: center;
+      font-size: 10px;
+      font-family: "MyriadProRegular", sans-serif;
+      color: #008fd3; }
+  .fed_center .text_center {
+    width: 75%;
+    float: right; }
+    .fed_center .text_center h2 {
+      font-size: 19px;
+      text-align: center;
+      color: #55504c;
+      font-family: 'Open Sans', sans-serif; }
+    .fed_center .text_center ul {
+      overflow: hidden;
+      text-align: center;
+      width: 270px;
+      margin: 20px auto 20px auto; }
+      .fed_center .text_center ul li {
+        float: left;
+        margin-left: 10px; }
+        .fed_center .text_center ul li button {
+          width: 125px;
+          height: 30px;
+          text-align: center;
+          background: #48b4de;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 12px;
+          font-family: "MyriadProRegular", sans-serif;
+          border: none;
+          cursor: pointer; }
+    .fed_center .text_center p {
+      font-size: 11px;
+      text-align: center;
+      color: #55504b;
+      font-family: 'Open Sans', sans-serif;
+      padding: 5px 0 5px 0; }
+    .fed_center .text_center a.zapis_na_priem, .fed_center .text_center a.otziv {
+      display: block;
+      width: 160px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #47b4de;
+      font-size: 14px;
+      font-family: "MyriadProRegular", sans-serif;
+      margin: 10px auto 0 auto; }
+    .fed_center .text_center a.otziv {
+      width: 160px; }
+
+div.in_main_content_right {
+  float: left !important;
+  display: inline-block;
+  width: 29% !important; }
+  div.in_main_content_right div.icons {
+    width: 100%; }
+    div.in_main_content_right div.icons div.diagnostik, div.in_main_content_right div.icons div.clinik, div.in_main_content_right div.icons div.doctors {
+      border-bottom: 1px solid #008ac4;
+      width: 100%; }
+    div.in_main_content_right div.icons div.diagnostik a {
+      display: block;
+      width: 80%;
+      height: 70px;
+      text-decoration: none;
+      padding: 5px 0 5px 55px;
+      text-align: center;
+      font-size: 19px;
+      color: #008ac4;
+      background: url("../img/diagnostika.png") no-repeat 10px center;
+      line-height: 70px; }
+    div.in_main_content_right div.icons div.clinik a {
+      display: block;
+      width: 80%;
+      height: 70px;
+      text-decoration: none;
+      padding: 5px 0 5px 45px;
+      text-align: center;
+      font-size: 19px;
+      color: #008ac4;
+      background: url("../img/clinik.png") no-repeat 10px center;
+      line-height: 70px; }
+    div.in_main_content_right div.icons div.doctors a {
+      display: block;
+      width: 80%;
+      height: 70px;
+      text-decoration: none;
+      padding: 5px 0 5px 45px;
+      text-align: center;
+      font-size: 19px;
+      color: #008ac4;
+      background: url("../img/doctors.png") no-repeat 10px center;
+      line-height: 70px; }
+
+div.map {
+  width: 100%; }
+  div.map img {
+    max-width: 100%; }
+
+.more_rezult {
+  width: 100%;
+  padding: 10% 0; }
+  .more_rezult button {
+    width: 160px;
+    height: 43px;
+    border: 3px solid #d9d6d6;
+    border-radius: 4px;
+    background: #fdfdfe;
+    color: #49a5dd;
+    font-size: 12px;
+    font-family: 'PT Sans Narrow','Arial',sans-serif;
+    text-transform: uppercase; }
+
+.bottom_menu {
+  width: 96%;
+  padding: 5% 2%; }
+  .bottom_menu ul {
+    overflow: hidden; }
+    .bottom_menu ul li {
+      float: left;
+      margin-left: 5%; }
+      .bottom_menu ul li a {
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 19px;
+        font-family: "MyriadProRegular", sans-serif; }
+  .bottom_menu ul :nth-child(2), .bottom_menu ul :nth-child(3), .bottom_menu ul :nth-child(4), .bottom_menu ul :nth-child(5) {
+    margin-left: 10%; }
+  .bottom_menu ul :first-child, .bottom_menu ul :first-child a {
+    margin-left: none !important; }
+
+.zagolovok_spravka h1 {
+  font-size: 21px;
+  color: #958f8a;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  width: 70%;
+  display: inline-block;
+  padding: 20px 0; }
+
+.spravka_content {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 30px; }
+  .spravka_content div.zobolevan {
+    padding: 10px 0 10px 0px;
+    overflow: hidden;
+    border-bottom: 1px solid #c0d6eb; }
+    .spravka_content div.zobolevan h2 {
+      text-align: left;
+      text-transform: uppercase;
+      color: #008ac4;
+      font-size: 17px;
+      font-family: 'Open Sans', sans-serif;
+      margin-bottom: 5px; }
+    .spravka_content div.zobolevan p {
+      font-size: 12px;
+      color: #b4afa9;
+      font-family: "MyriadProRegular", sans-serif !important;
+      line-height: 16px;
+      text-align: left; }
+    .spravka_content div.zobolevan img {
+      display: block;
+      float: left;
+      padding-right: 10px;
+      padding-bottom: 30px; }
+
+.hleb {
+  overflow: hidden; }
+  .hleb ul {
+    overflow: hidden; }
+    .hleb ul li {
+      height: 20px;
+      float: left;
+      margin-left: 0;
+      padding-left: 30px;
+      background: url("../img/strelka.png") no-repeat left 3px; }
+      .hleb ul li a {
+        text-decoration: none; }
+    .hleb ul :first-child {
+      background: none;
+      padding-left: 0 !important; }
+
+.zagolovok_spravka h2 {
+  font-size: 18px;
+  text-align: center;
+  color: #008fd3;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 20px; }
+
+.article_content p b i span {
+  font-size: 21px !important;
+  text-align: center !important;
+  color: #958f8a !important;
+  font-family: 'Open Sans', sans-serif !important;
+  margin-top: 20px !important;
+  margin-bottom: -11px; }
+.article_content p {
+  font-size: 18px !important;
+  text-align: center !important;
+  color: #008fd3 !important;
+  font-family: 'Open Sans', sans-serif !important;
+  margin-top: 20px !important;
+  margin-bottom: 6px; }
+.article_content li span {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif !important;
+  color: #958f8a; }
+.article_content p span {
+  font-size: 18px !important;
+  color: #008fd3 !important;
+  font-family: 'Open Sans', sans-serif !important; }
+.article_content ul {
+  padding-left: 23px;
+  margin-bottom: 20px;
+  text-align: center; }
+  .article_content ul li {
+    margin-top: 4px !important;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif !important;
+    color: #958f8a;
+    line-height: 17px;
+    text-align: center; }
+
+.razdel {
+  width: 270px;
+  height: 40px;
+  float: left;
+  background: url("../img/zaglavie.png") no-repeat left center;
+  font-size: 18px;
+  color: #008fd3;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 40px;
+  padding-right: 10px;
+  margin-left: -9%;
+  background-size: 100%; }
+
+.article_left {
+  padding: 2% 2% !important;
+  width: 66% !important; }
+  .article_left h2 {
+    font-size: 18px;
+    text-align: center;
+    color: #008fd3;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px; }
+
+.lokalizaciy {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-left: 8%; }
+  .lokalizaciy ul li p {
+    color: #958f8a;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    line-height: 18px; }
+  .lokalizaciy div.lokalizaciy_left {
+    width: 40%;
+    float: left; }
+    .lokalizaciy div.lokalizaciy_left ul {
+      width: 165px;
+      height: 115px;
+      margin-top: 5%;
+      padding-left: 30px;
+      background: url("../img/lines2.png") no-repeat left 5px; }
+      .lokalizaciy div.lokalizaciy_left ul li {
+        margin-top: 5px; }
+  .lokalizaciy div.lokalizaciy_right {
+    width: 60%;
+    float: right; }
+    .lokalizaciy div.lokalizaciy_right ul {
+      float: right;
+      width: 245px;
+      height: 150px;
+      padding-left: 25px;
+      background: url("../img/lines3.png") no-repeat left 7px; }
+      .lokalizaciy div.lokalizaciy_right ul li {
+        margin-top: 4px; }
+
+.kt {
+  margin-bottom: 20px;
+  margin-top: 30px; }
+
+.kt_text p {
+  color: #958f8a;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+  line-height: 18px; }
+.kt_text ul {
+  padding-left: 40px;
+  background: url("../img/lines4.png") no-repeat left 5px; }
+  .kt_text ul li {
+    margin-top: 5px; }
+
+.mrt_text ul {
+  padding-left: 30px;
+  background: url("../img/lines5.png") no-repeat left 5px; }
+  .mrt_text ul li {
+    margin-top: 5px; }
+.mrt_text p {
+  color: #958f8a;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+  line-height: 18px; }
+
+.snimok p {
+  color: #958f8a;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  line-height: 18px; }
+.snimok img {
+  padding: 20px 0 20px 0; }
+
+.zagolovok_clinick h1 {
+  font-size: 21px;
+  color: #958f8a;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  width: 90%;
+  display: inline-block;
+  padding: 20px 0 0 0; }
+.zagolovok_clinick h2 {
+  font-size: 21px;
+  color: #958f8a;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: none;
+  width: 90%;
+  display: inline-block;
+  padding: 0 0 0 20px;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important; }
+.zagolovok_clinick .best_specialist {
+  overflow: hidden;
+  width: 86%;
+  margin: 0 auto; }
+  .zagolovok_clinick .best_specialist button {
+    width: 223px;
+    height: 53px;
+    border-radius: 20px;
+    background: #008ac4;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    margin-bottom: 20px !important;
+    cursor: pointer; }
+  .zagolovok_clinick .best_specialist .button_left {
+    float: left; }
+  .zagolovok_clinick .best_specialist .button_right {
+    float: right; }
+
+.in_clinick_content .rayon {
+  text-align: left;
+  border-bottom: 1px solid #c0d6eb;
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  overflow: hidden; }
+  .in_clinick_content .rayon img {
+    float: left;
+    padding-bottom: 5px; }
+  .in_clinick_content .rayon p {
+    line-height: 45px;
+    color: #958f8a;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    padding-left: 60px; }
+  .in_clinick_content .rayon p.adres {
+    line-height: 18px;
+    padding: 5px 0 0 60px; }
+  .in_clinick_content .rayon p.adres2 {
+    text-indent: 50px;
+    padding: 0 0 0 60px !important;
+    line-height: 18px !important; }
+  .in_clinick_content .rayon p.near_metro {
+    text-indent: 130px; }
+  .in_clinick_content .rayon p.time {
+    text-indent: 105px !important; }
+
+.in_clinick_content h2 {
+  font-size: 18px;
+  text-align: center;
+  color: #008fd3;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 25px; }
+
+.clinick_price ul {
+  margin-top: 20px;
+  background: url("../img/lines6.png") no-repeat left -4px; }
+  .clinick_price ul li {
+    margin-top: 28px !important;
+    overflow: hidden;
+    display: block; }
+    .clinick_price ul li :first-child {
+      float: left;
+      width: 80%; }
+    .clinick_price ul li :last-child {
+      width: 20%;
+      float: right; }
+
+.clinick_text {
+  overflow: hidden; }
+  .clinick_text div {
+    width: 46%;
+    float: left;
+    padding: 2%; }
+    .clinick_text div p {
+      text-align: justify;
+      padding-top: 6px;
+      line-height: 16px;
+      word-spacing: 2px;
+      color: #958f8a;
+      font-size: 14px;
+      font-family: 'Open Sans', sans-serif; }
+
+.contects {
+  text-align: center;
+  color: #008ac4;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 16px;
+  margin: 10px 0 10px 0; }
+
+.info_about_doctor {
+  max-width: 200px;
+  padding: 5px;
+  border: 3px solid #008fd3;
+  border-radius: 10px;
+  margin-left: 4%;
+  margin-top: 8%; }
+  .info_about_doctor img {
+    float: left;
+    padding: 2px; }
+  .info_about_doctor p {
+    color: #c1bcb7;
+    font-size: 7px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 8px;
+    text-align: center;
+    margin-bottom: 10px; }
+  .info_about_doctor h4 {
+    color: #0090d4;
+    font-size: 11px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 12px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5px; }
+
+div.razdel_clinick p {
+  color: #958f8a !important;
+  font-size: 19px !important;
+  font-family: 'Open Sans', sans-serif !important; }
+
+.on {
+  background: red !important;
+  border: 1px solid #000 !important;
+  color: #fff !important; }
+
+input::-webkit-input-placeholder {
+  color: #fff; }
+
+input:-moz-placeholder {
+  color: #fff; }
+
+.form {
+  width: 200px;
+  height: 180px;
+  background: #fb985f; }
+  .form form {
+    width: 170px;
+    padding: 25px 0 0 0;
+    margin: 0 auto;
+    text-align: center; }
+    .form form .submit {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 10px;
+      padding: 3px 5px;
+      background: #fff;
+      border-radius: 5px;
+      border: none;
+      color: #959696;
+      cursor: pointer;
+      margin-top: 30px; }
+    .form form input {
+      width: 165px;
+      height: 25px;
+      border: 1px solid #fff;
+      margin: 0 auto;
+      background: #fb9960;
+      color: #fff;
+      position: relative;
+      z-index: 10;
+      padding-left: 5px; }
+    .form form .input_phone_in {
+      background: url("../img/input_men.png") no-repeat 150px center; }
+    .form form .input_men_in {
+      background: url("../img/input_phone.png") no-repeat 150px center; }
+    .form form .input_phone {
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: #fb985f;
+      position: relative;
+      z-index: 100; }
+    .form form .input_men {
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: #fb985f;
+      position: relative;
+      z-index: 100;
+      margin-top: 15px; }
+
+.zakazat_zv {
+  width: 200px;
+  height: 67px;
+  background: url("../img/button_top_menu3.png") no-repeat left 0;
+  margin-bottom: -2px; }
+
+.arcticmodal-close {
+  color: #fff;
+  text-align: right;
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

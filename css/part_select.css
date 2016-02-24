@@ -1,0 +1,73 @@
+/* Research type select */
+.part_select .select_list {
+	display:none;
+	width:685px;
+	position:absolute;
+	top:35px;
+	left:-199px;
+	background:white;
+	text-align:center;
+	padding:20px 40px;
+}
+.part_select.open .select_list {
+	display:block;
+	z-index:1000;
+	cursor:auto;
+}
+.part_select .select_group_cont {
+	width:270px;
+	padding:15px;
+	display:inline-block;
+	vertical-align:top;
+	min-height:1px;
+}
+.part_select .select_group_cont  h4{
+	display:block;
+	padding-left:40px;
+	font-size:14px;
+	color:black;
+	border-bottom:3px solid #f2a753;
+}
+.part_select .select_group_cont  ul{
+	display:block;
+	text-align:left;
+	color:black;
+}
+.part_select .select_list .select_group_cont  ul li{
+	display:block;
+	margin:2px 0;
+	height:auto;
+	line-height:19px;
+	cursor:pointer;
+}
+.part_select .select_list .select_group_cont  ul li span{
+	padding:1px;
+	border-radius:2px;
+}
+.part_select .select_list .select_group_cont  ul li input:checked~span{
+	background-color: rgba(253,172,38,0.3);
+}
+.part_select .select_group_cont input[type='checkbox']{
+	display:none;
+}
+
+.part_close {
+	cursor: pointer;
+	color: rgb(0, 143, 211);
+	float:right;
+	display:block;
+}
+.part_clear {
+	cursor: pointer;
+	color: rgb(0, 143, 211);
+	float:right;
+	display:block;
+	margin:0 20px;
+}
+.part_select .closeX{
+	cursor: pointer;
+	color: rgb(0, 143, 211);
+	float:left;
+	display:block;
+	margin-top:4px;
+}

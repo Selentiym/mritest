@@ -1,0 +1,240 @@
+/* --- RESET --- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section{
+	display: block;
+}
+
+table{
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
+
+a{
+	text-decoration: none;
+}
+
+nav li{
+	list-style-type: none;
+	display: inline-block;
+}
+
+
+
+/* PREFIXED CSS */
+.flat .selected::after,
+.flat.scrollable div::after{
+	-webkit-pointer-events: none;
+	-moz-pointer-events: none;
+	-ms-pointer-events: none;
+	pointer-events: none;
+}
+
+/* WRAPPER */
+
+.flat{
+	position: relative;
+	width: 175px;
+	cursor: pointer;
+	font-weight: 200;
+	border-top:1px solid #d8e9f6;
+	border-bottom:1px solid #d8e9f6;
+	color:  #000 !important;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	background:#fff;
+}
+
+.flat.open{
+	z-index: 2;
+}
+
+
+
+/* CARAT */
+
+.flat .carat{
+	position: absolute;
+	top:1px;
+	right: 0;
+
+	background:url('select.jpg') no-repeat right center;
+	z-index: 1;
+	width:21px;
+	height:28px;
+}
+
+
+
+
+
+
+/* OLD SELECT (HIDDEN) */
+
+.flat .old{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+}
+
+.flat select{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.flat.touch select{
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+/* SELECTED FEEDBACK ITEM */ 
+
+
+.flat .selected,
+.flat li{
+	display: block !important;
+	font-size: 14px;
+	font-weight: 400;
+	position:relative;
+
+	padding: 8px 20px 7px 5px;
+	background: #fff;
+	overflow: hidden;
+	white-space: nowrap;
+	color:#008fd3;
+	float:none !important;
+}
+
+.bottom_search .flat .selected,
+.flat li{
+	font-size:11px !important;
+	line-height: 30px !important;
+	padding:0 0 0 10px !important;
+	text-align: center !important;
+}
+
+
+
+.flat .selected{
+	background:url('select2.png')no-repeat left center !important;
+	padding: 8px 0 7px 5px !important;
+}
+
+
+
+
+/* DROP DOWN WRAPPER */
+
+.flat div{
+content: 'Тип исследования';
+	position: absolute;
+	height: 0;
+	left: 0;
+	right: 0;
+	top: 100%;
+	overflow: auto;
+	opacity: 0;
+	color: #000;
+	border-radius: 2px;
+}
+
+
+
+/* Height is adjusted by JS on open */
+
+.flat.open div{
+	opacity: 1;
+	z-index: 2;
+
+	height:120px;
+
+}
+
+/* FADE OVERLAY FOR SCROLLING LISTS */
+
+.flat.scrollable div::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 50px;
+	
+}
+
+
+
+.flat.scrollable.bottom div::after{
+	opacity: 0;
+}
+
+/* DROP DOWN LIST */
+
+.flat ul{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 120px;
+	width: 100%;
+	list-style: none;
+	overflow: auto;
+	
+}
+
+.flat.scrollable.open ul{
+	overflow-y: auto;
+}
+
+/* DROP DOWN LIST ITEMS */
+
+.flat li{
+	list-style: none;
+	padding: 10px 13px;
+	border: 1px solid #d8e9f6;
+	
+}
+
+
+/* .focus class is also added on hover */
+
+.flat li.focus{
+	background:#fff;
+	position: relative;
+	z-index: 3;
+	color: #000;
+}
+
+
+
