@@ -544,6 +544,7 @@ class HomeController extends Controller
 	}
 	public function actioncheckGit(){
 		echo "Commited from local server!";
+		echo "blabla";
 	}
 }
 ?>
