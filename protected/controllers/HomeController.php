@@ -536,9 +536,9 @@ class HomeController extends Controller
 		$geo = new Geo();
 		echo $geo -> get_value('city');
 	}
-	/*public function actionPss() {
+	public function actionPss() {
 		echo md5('shubinsa7shubinsa'.'unique salt');
-	}*/
+	}
 	public function acioncheckStrom() {
 		echo "changed from php storm!";
 	}

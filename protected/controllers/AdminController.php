@@ -1759,4 +1759,7 @@ class AdminController extends Controller
             }
         }
     }
+    public function actionDownloadImages(){
+        echo "download";
+    }
 }
