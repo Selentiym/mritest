@@ -542,9 +542,5 @@ class HomeController extends Controller
 	public function acioncheckStrom() {
 		echo "changed from php storm!";
 	}
-	public function actioncheckGit(){
-		echo "Commited from local server!";
-		echo "blabla";
-	}
 }
 ?>
