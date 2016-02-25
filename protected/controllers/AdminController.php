@@ -1760,6 +1760,27 @@ class AdminController extends Controller
         }
     }
     public function actionDownloadImages(){
-        echo "download";
+        $xml = file_get_contents('http://o-mri.ru.clinics.s3.amazonaws.com/');
+        $obj = new SimpleXMLElement($xml);
+        //var_dump($obj);
+        $verb = function($str){
+            $matches = array();
+            $rez = preg_replace('/(\.jpg)|(\.JPG)/','',$str);
+            //preg_replace("/.*?\./", '', 'photo.jpg');
+            return $rez;
+        };
+
+        //Yii::app() -> end();
+        foreach ($obj -> Contents as $image) {
+            if (clinics::model() -> findByAttributes(array('verbiage' => $verb($image -> Key)))) {
+                echo "found:".$verb($image -> Key)."<br/>";
+                $f++;
+            } else {
+                echo "not found:".$verb($image -> Key)."<br/>";
+                $nf++;
+            }
+
+        }
+        echo "Found: $f, not found: $nf";
     }
 }
