@@ -1759,7 +1759,7 @@ class AdminController extends Controller
             }
         }
     }
-    public function actionDownloadImages(){
+    /*public function actionDownloadImages(){
         $xml = file_get_contents('http://o-mri.ru.clinics.s3.amazonaws.com/');
         $obj = new SimpleXMLElement($xml);
         //var_dump($obj);
@@ -1792,7 +1792,8 @@ class AdminController extends Controller
             curl_close($ch);
             return true;
         };
-        $baseUrl = 'http://o-mri.ru.clinics.s3.amazonaws.com/';
+        $baseUrl = 'http://o-mri.ru.clinics.s3.amazonaws.com';
+
         //$imageName = '1mrt.jpg';
         //$download($urlbase.$imageName, Yii::getPathOfAlias('webroot.images').'/'.$imageName);
         //Yii::app() -> end();
@@ -1803,8 +1804,17 @@ class AdminController extends Controller
                 {
                     mkdir($images_filePath);
                 }
+                $fileName = $images_filePath.'/'.$image -> Key;
+
+                if (file_exists($fileName)) {
+                    unlink($fileName);
+                    $deleted ++;
+                }
+
                 if ($download($baseUrl.'/'.$image -> Key, $images_filePath.'/'.$image -> Key)) {
+                //if ($download($baseUrl.'/'.$image -> Key, Yii::getPathOfAlias('webroot.images').'/'.$image -> Key)) {
                     $clinic -> logo = $image -> Key;
+                    $clinic -> save();
                     $d ++;
                 } else {
                     $nd ++;
@@ -1814,6 +1824,50 @@ class AdminController extends Controller
             }
 
         }
-        echo "Uploaded: $d, not uploaded: $nd, not found: $nf";
+        echo "Uploaded: $d, not uploaded: $nd, not found: $nf, deleted: $deleted";
     }
+    public function actionDownloadAllImages(){
+        $xml = file_get_contents('http://o-mri.ru.clinics.s3.amazonaws.com/');
+        $obj = new SimpleXMLElement($xml);
+        $download = function ($url, $target) {
+            if(!$hfile = fopen($target, "w"))return false;
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11');
+
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_FILE, $hfile);
+
+            if(!curl_exec($ch)){
+                curl_close($ch);
+                fclose($hfile);
+                unlink($target);
+                return false;
+            }
+
+            fflush($hfile);
+            fclose($hfile);
+            curl_close($ch);
+            return true;
+        };
+        $verb = function($str){
+            $matches = array();
+            $rez = preg_replace('/(\.jpg)|(\.JPG)/','',$str);
+            //preg_replace("/.*?\./", '', 'photo.jpg');
+            return $rez;
+        };
+        $baseUrl = 'http://o-mri.ru.clinics.s3.amazonaws.com';
+        foreach ($obj -> Contents as $image) {
+            echo $image -> Key;
+
+            echo Yii::getPathOfAlias('webroot.images.allimages').'\\'.$image -> Key;
+            if ($download($baseUrl.'/'.$image -> Key, Yii::getPathOfAlias('webroot.images.allimages').'/'.$image -> Key)) {
+                $d++;
+            } else {
+                $nd++;
+            }
+        }
+        echo "downloaded: $d, not downloaded: $nd";
+    }*/
 }
