@@ -14,3 +14,5 @@ date.d
 *.swp
 #ignore the images folder temporarily
 images/clinics/**/*
+#ignore the runtime folder filled with often updated data
+protected/runtime/**/*
