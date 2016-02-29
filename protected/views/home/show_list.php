@@ -109,6 +109,8 @@ $('#big_button').click(function(e) {
 	e.preventDefault();
 	$('.bottom_search').slideToggle(1000);
 });",CClientScript::POS_END);
+$mrt = (strlen(($fromPage['МРТ'])) > 0 );
+$kt = (strlen(($fromPage['КТ'])) > 0 );
 ?>
 
 <div class="search2">
@@ -123,8 +125,6 @@ $('#big_button').click(function(e) {
 				
 					<ul class="top_form">
 					<li>
-						<?php $mrt = (strlen(($fromPage['МРТ'])) > 0 ); ?>
-						<?php $kt = (strlen(($fromPage['КТ'])) > 0 ); ?>
 						<input class="input_mrt<?php if ($mrt) echo " on"; ?>" type="button" data-trigger='mrt' id="mrt_button" value="МРТ">
 
 					</li>
