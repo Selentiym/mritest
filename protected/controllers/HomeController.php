@@ -30,6 +30,12 @@ class HomeController extends Controller
 				'access' => function () {return true;},
 				'view' => '//home/CallForm',
 				'everyone' => true
+			),
+			'rating'=>array(
+				'class'=>'application.controllers.actions.FileViewAction',
+				'access' => function () {return true;},
+				'view' => '//home/rating',
+				'everyone' => true
 			)
 		);
 	}
