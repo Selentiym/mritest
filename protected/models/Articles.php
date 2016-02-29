@@ -361,11 +361,11 @@ class Articles extends CTModel
 	public function giveModifyedText(){
 		//$string = "какая-то там диагностика чего-то там";
 		$string = $this -> text;
-		//$text = 'Контакты диагностических медицинских центров, где Вы можете пройти <span style="font-weight:bold">МРТ, КТ, УЗИ</span> или другие виды диагностики представлены в разделе <a style="color:rgb(0,138,196)" href="'.Yii::app() -> baseUrl.'/">ДИАГНОСТИКА…</a>
-		$text = 'Контакты диагностических медицинских центров, где Вы можете пройти <span style="font-weight:bold">МРТ, КТ, УЗИ</span> или другие виды диагностики представлены в разделе <span style="color:rgb(0,138,196)">ДИАГНОСТИКА…</span>
-*также в данном разделе представлены: <span style="font-weight:bold">рейтинги</span>, основанные на отзывах лечащих врачей и пациентов, <span style="font-weight:bold">цены</bold> и много другой полезной информации…';
 		$url = Yii::app() -> baseUrl.'/clinics/';
-		$rez1 = preg_replace("!(диагностика?)!iu","<a href=".$url.">\\1 <div style='display:inline;font-size:10px;'>(".$text.")</div></a> ",$string);
+		//$text = 'Контакты диагностических медицинских центров, где Вы можете пройти <span style="font-weight:bold">МРТ, КТ, УЗИ</span> или другие виды диагностики представлены в разделе <a style="color:rgb(0,138,196)" href="'.Yii::app() -> baseUrl.'/">ДИАГНОСТИКА…</a>
+		$text = 'Подобрать оптимальный диагностический МРТ и/или КТ центр по параметрам, Вы можете в нашем <a href="'.$url.'">каталоге клиник...</a>';
+
+		$rez1 = preg_replace("!(диагностика?)!iu","<a href=".$url.">\\1</a> <div style='display:inline;font-size:10px;'>(".$text.")</div> ",$string);
 		
 		
 		
@@ -389,11 +389,9 @@ class Articles extends CTModel
 		//echo "<br/>";
 		//print_r($will);
 		$rez2 = str_replace($was, $will,$rez1);
-		$text = 'Контакты медицинских центров и врачей, где Вы можете получить профессиональную врачебную помощь, представлены в разделе КЛИНИКИ и ВРАЧИ…
-*также в данном разделе представлены: рейтинги, основанные на отзывах пациентов, цены и много другой полезной информации…
-';
 		$url = '#';
-		$rez = preg_replace("!(Специализация врачей)!iu","<a href=".$url.">\\1 <div style='display:inline;font-size:10px;'>(".$text.")</div></a> ",$rez2);
+		$text = 'Подобрать оптимального врача по параметрам, Вы можете в нашем <a href ="'.$url.'">каталоге врачей...</a>';
+		$rez = preg_replace("!(Специализация врачей)!iu","<a href=".$url.">\\1</a> <div style='display:inline;font-size:10px;'>(".$text.")</div> ",$rez2);
 		
 		
 		/*if (!preg_match('/\<img((?!alt=).)*alt="(.+)"((?!alt=).)*\>/',$temp,$matches)) {
