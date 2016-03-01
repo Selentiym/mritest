@@ -1,5 +1,9 @@
 <?php
 
+function echob($str){
+    echo "<br/>".$str."<br/>";
+}
+
 function resetId($model = NULL) {
     if ($model) { 
         $id = $model->primaryKey;

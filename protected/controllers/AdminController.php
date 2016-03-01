@@ -1764,12 +1764,10 @@ class AdminController extends Controller
 
         if ($api -> success) {
             $api -> setDefaultWorkArea();
-            var_dump($api -> giveData() -> getEntries());
-            echo "good";
-            //var_dump($api);
+            /*var_dump($api -> giveData() -> getEntries());
+            echo "good";*/
+            clinics::importFromGoogleDoc($api);
         }
-        /*$spreadsheetFeed = $api -> api -> getSpreadsheets();
-        var_dump($spreadsheetFeed);*/
     }
     /*public function actionDownloadImages(){
         $xml = file_get_contents('http://o-mri.ru.clinics.s3.amazonaws.com/');

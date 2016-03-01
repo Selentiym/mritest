@@ -762,5 +762,34 @@ class BaseModel extends CTModel
 		}
 		return $obj;
 	}
+
+	/**
+	 * @var BaseGoogleDocApiHelper $api - api to get data from.
+	 * @return bool - whether the import was successful.
+	 */
+	public static function importFromGoogleDoc(BaseGoogleDocApiHelper $api){
+		if ($api -> success) {
+			$entries = $api -> giveData() -> getEntries();
+			echo get_class(current($entries));
+			$count = 0;
+			foreach($entries as $entry){
+				if (!is_a($entry,'Google\Spreadsheet\ListEntry')) {
+					continue;
+					$count ++;
+				}
+
+				$clinicLine = $entry -> getValues();
+				if ($clinicLine['название'] == 'comment') {
+					continue;
+				}
+				//Получаем клинику из строки, с уже заданными параметрами.
+				$clinic = $api -> clinicFromLine($clinicLine);
+			}
+			echo $count;
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 ?>
