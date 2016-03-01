@@ -1,0 +1,5 @@
+#ignore .tokendata files and config files
+#so that nobody could get acces to your spreadsheets
+#using those files on github
+.tokendata
+config.json

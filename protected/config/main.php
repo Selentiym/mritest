@@ -23,7 +23,8 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.extensions.EchMultiSelect.*',
-		'application.extensions.geo.*'
+		'application.extensions.geo.*',
+		'application.components.googleDoc.*',
 		//'application.modules.user.models.*',
 		//'application.modules.user.components.*',
         //'application.modules.message.models.*',
