@@ -8,7 +8,7 @@ class BaseModel extends CTModel
 	/**
 	 * @var array SFields specific fields. Those will not be taken into account in the default search function.
 	 */
-	public $SFields = array('district','metro','research');//,'speciality');
+	public $SFields = array('district','metro','research','submitted');//,'speciality');
 	/**
 	 * @var integer type. Stores id of the object's type.
 	 */
@@ -74,11 +74,13 @@ class BaseModel extends CTModel
 	public function userSearch($search,$order='rating',$limit=-1)
 	{
 		//$objects = $this -> model() -> findAll('rating DESC');
+		//Если поле сортировки не задано, сортируем по рейтингу
 		if (!$order) {
 			$order='rating';
 		}
 		
 		$criteria = new CDbCriteria();
+		//По цене будет отдельная сортировка
 		if (!in_array($order, array('price'))) {
 			$criteria -> order = $order.' DESC';
 		}
@@ -86,6 +88,7 @@ class BaseModel extends CTModel
 		$objects_filtered = array();
 		//print_r($search);
 		$search = array_filter($search);
+		//var_dump($search);
 		$filter = array();
 		foreach ($search as $key => $option) {
 			/*if ($key == 'speciality') {
@@ -139,6 +142,10 @@ class BaseModel extends CTModel
 			//echo $object -> name.' ';print_r($triggers_array);
 			/* common filters */
 			if (!empty($filter)) {
+				//echo $object -> verbiage.'<br/>';
+				//var_dump($filter);
+				//var_dump($triggers_array);
+				//break;
 				$common = array_intersect($filter, $triggers_array);
 				if (count($common) != $count)
 					continue;                           
