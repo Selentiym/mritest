@@ -690,6 +690,12 @@ class BaseModel extends CTModel
 					}
 				}
 			} catch (Exception $e) {}
+			//Пытаемся найти ближайшее метро.
+			/*try {
+				if ($this -> map_coordinates) {
+
+				}
+			} catch (Exception $e) {}*/
 			return true;
 		} else {
 			return false;
@@ -770,7 +776,7 @@ class BaseModel extends CTModel
 	public static function importFromGoogleDoc(BaseGoogleDocApiHelper $api){
 		if ($api -> success) {
 			$entries = $api -> giveData() -> getEntries();
-			echo get_class(current($entries));
+			//echo get_class(current($entries));
 			$count = 0;
 			foreach($entries as $entry){
 				if (!is_a($entry,'Google\Spreadsheet\ListEntry')) {

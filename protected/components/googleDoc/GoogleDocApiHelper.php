@@ -6,33 +6,47 @@
 		 */
 		/**
 		 * format of a google doc entry
-		'название' => string 'Военно-Медицинская Академия им. С. М. Кирова' (length=79)
-		'сайт' => string 'http://vmeda.org' (length=16)
+
 		'код' => string 'kirova' (length=6)
 		'картинка' => string 'kirova' (length=6)
-		'адрес' => string 'ул. Академика Лебедева, д. 6' (length=48)
-		'адресдополнительный' => string '' (length=0)
-		'район' => string 'Выборгский' (length=20)
-		'телефон' => string '(812) 248-32-86, (812) 292-33-47, (812) 292-32-94, (812) 291-45-47- прямой телефон записи' (length=108)
+
 		'телефония' => string '(812) 490-75-73' (length=15)
 		'online' => string '' (length=0)
-		'email' => string 'rentgen_vma@mail.ru' (length=19)
-		'часыработы' => string 'Пн-Пт: 09.00-17:30' (length=22)
+
 		'дополнительно' => string '' (length=0)
 
-		'модельмрт' => string 'General Electric SIGNA 1.5T' (length=27)
+		'примечания' => string '' (length=0)
 		'прайсмрт' => string '
 		http://www.vmeda.org/prices/~item/215' (length=38)
 		'прайскт' => string '
 		http://www.vmeda.org/prices/~item/215' (length=38)
-		'моделькт' => string '
-		' (length=1)
-		'примечания' => string '' (length=0)
 
 
-		'исключитьтипыисследований' => string '' (length=0)
+
+
 		 */
+		/*
+		'название' => string 'Военно-Медицинская Академия им. С. М. Кирова' (length=79)
+		'сайт' => string 'http://vmeda.org' (length=16)
+		'адрес' => string 'ул. Академика Лебедева, д. 6' (length=48)
+		'адресдополнительный' => string '' (length=0)
+		'телефон' => string '(812) 248-32-86, (812) 292-33-47, (812) 292-32-94, (812) 291-45-47- прямой телефон записи' (length=108)
+		'email' => string 'rentgen_vma@mail.ru' (length=19)
+		'часыработы' => string 'Пн-Пт: 09.00-17:30' (length=22)
+		'модельмрт' => string 'General Electric SIGNA 1.5T' (length=27)
+		'моделькт' => string '' (length=1)
 
+		*/
+		public $staticFields = array(
+			'name' => 'название',
+			'site' => 'сайт',
+			'address' => 'адрес',
+			'address_extra' => 'адресдополнительный',
+			'email' => 'email',
+			'working_hours' => 'часыработы',
+			'mrt' => 'модельмрт',
+			'kt' => 'моделькт'
+		);
 		/*
 		'мрт' => string 'да' (length=4)
 		'кт' => string 'да' (length=4)
@@ -51,7 +65,7 @@
 			'uzi' => 'узи',
 			'mammografia' => 'маммография',
 			'angiografia' => 'ангиография',
-			'pet' => 'кт',
+			'pet' => 'пэт',
 			'kid' => 'дети',
 			'allday' => 'круглосуточно',
 			//'infinite_weight' => 'ограниченияповесу',
@@ -73,13 +87,13 @@
 		public $prices = array(
 			'МРТ Головного Мозга'=>'ценамртголовногомозга',
 			'КТ Головного Мозга'=>'ценактголовногомозга',
-			'МРТ ПОП'=>'ценамртпоп',
-			'КТ ПОП'=>'ценактпоп',
+			'МРТ Поясничного отдела позвоночника'=>'ценамртпоп',
+			'КТ Поясничного отдела позвоночника'=>'ценактпоп',
 			'МРТ Брюшной полости'=>'ценамртбрюшнойполости',
 			'МРТ Коленного Сустава'=>'ценамртколенногосустава',
-			'КТ грудной полости'=>'ценактгруднойполости',
-			'МРТ ШОП'=>'мртшоп',
-			'КТ сосудов головного мозга'=>'ценактсосудовголовногомозга'
+			'КТ Грудной полости'=>'ценактгруднойполости',
+			'МРТ Шейного отдела позвоночника'=>'мртшоп',
+			'КТ Сосудов головного мозга'=>'ценактсосудовголовногомозга'
 		);
 		/**
 		 * @var array $polyTrigs. Contains pairs <key> => <pTrig>
@@ -94,6 +108,7 @@
 					'64' => '64kt',
 					'128' => '128kt',
 					'8' => 'less12kt',
+					'256' => '256kt'
 				)
 
 		);
@@ -114,10 +129,16 @@
 			//Создаем, если нет
 			if (!$clinic) {
 				$clinic = new clinics();
-				echo "new";
-				echo '<br/>'.$line ['verbiage'].'<br/>';
+				//echo "new";
+				//echo '<br/>'.$line ['verbiage'].'<br/>';
 				$clinic -> verbiage = $line['verbiage'];
 			}
+			//Задаем статические поля
+			$attributes = array();
+			foreach($this -> staticFields as $verb => $docName){
+				$attributes[$verb] = $line[$docName];
+			}
+			$clinic -> attributes = $attributes;
 			//выбираем вообще все триггеры, делаем массив verbiage => id
 			$trigId = Html::listData(TriggerValues::model() -> findAll(),'verbiage','id');
 			/**
@@ -135,6 +156,13 @@
 			if ($line['ограниченияповесу'] == 'нет') {
 				$triggers[]=$trigId['infinite_weight'];
 			}
+			//Обрабатываем частная/гос
+			if ($line['частная'] == 'да') {
+				$triggers[] = $trigId['commercial'];
+			} elseif ($line['частная'] == 'нет') {
+				$triggers[] = $trigId['gosclinica'];
+			}
+
 			//Пробегаемся по полинарным триггерам.
 			foreach ($this -> polyTrigs as $key => $pTrig){
 
@@ -143,6 +171,7 @@
 				}*/
 				//Оставляем возможность манипулировать триггером, если понадоюится.
 				$tempVerb = $pTrig['verbiage'];
+				//echo $line[$key];
 				if ($tempVerb) {
 					$triggers[$tempVerb] = $trigId[$pTrig[$line[$key]]];
 				} else {
@@ -152,14 +181,47 @@
 			/**
 			 * Блок, посвященный нестандартной логике.
 			 */
+			//'район' => string 'Выборгский' (length=20)
+			$distr_ids = $clinic -> giveDistrictIdsByNameString($line['район']);
+			//var_dump($distr_ids);
+			$clinic -> district = implode(';',$distr_ids);
 			//Убираем количество срезов КТ, если нет КТ в клинике
 			if (!in_array($trigId['kt'],$triggers)) {
-				unset($triggers['kt']);
+				unset($triggers['srezikt']);
 			}
-
-
-
-			/*
+			//Исследуем поля "тип магнита" и "магнитное поле"
+			$triggers['field'] = $trigId['1_5tl'];
+			$triggers['magnet_type'] = $trigId['close'];
+			if ($line['магнитноеполе']=='ht'){
+				$triggers['field'] = $trigId['3tl'];
+				$triggers['magnet_type'] = $trigId['close'];
+			} elseif($line['типмагнита']=='open'){
+				$triggers['field'] = $trigId['weak'];
+				$triggers['magnet_type'] = $trigId['open'];
+			}
+			//Разбираемся с типами исследований
+			//'исключитьтипыисследований' => string '' (length=0)
+			//Получили типы, которые нуно выкинуть.
+			$excludeTypeNames = array_filter(array_map(function ($str) { return trim($str); },explode(', ', $line['исключитьтипыисследований'])));
+			//var_dump($excludeTypeNames);
+			$types = Triggers::model() -> findByAttributes(array('verbiage' => 'research')) -> trigger_values;
+			foreach($types as $type) {
+				//echo mb_strtolower($type -> value,'UTF-8').' - <br/>';
+				if (!in_array(mb_strtolower(trim($type -> value),'UTF-8'),$excludeTypeNames)) {
+					$triggers[] = $type -> id;
+				} else {
+					//echob("excluded {$type -> verbiage}");
+				}
+			}
+			/**
+			 * Конец блока нестандартной логики
+			 */
+			//temporerily
+			$showP = function($price){
+				echob($price -> name.' - '. $price -> price);
+			};
+			//Устанавливаем триггеры:
+			$clinic -> triggers = implode(';', $triggers);
 			//Добавляем цены. Для этого предварительно сохраняем изменения,
 			//чтобы получить clinic -> id
 			if (!$clinic -> save()) {
@@ -186,20 +248,22 @@
 				}
 				//Если не нашлась, то создаем новую.
 				if (!$price) {
+					//echo 'new:';
 					$price = new Pricelist;
 					$price->object_type = Objects::model()->getNumber(get_class($clinic));
 					$price->object_id = $clinic->id;
 					$price->name = $priceName;
 				}
 				$price -> price = $line[$priceField];
+				//$showP($price);
 				//Пытаемся цену сохранить.
 				if (!$price -> save()) {
 					new CustomFlash('error','Pricelist','save',"Could not save the price for {$clinic -> verbiage} named '{$price -> name}'.",true);
 
 				}
-			}*/
-			var_dump($triggers);
-			Yii::app() -> end();
+			}
+			//var_dump($triggers);
+			//Yii::app() -> end();
 			return $clinic;
 		}
 	}
