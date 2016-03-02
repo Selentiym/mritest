@@ -20,7 +20,7 @@
 			<?php
 				$column_class = array('button_left', 'button_right');
 				$column = -1;
-				$no_disp = array(2);
+				$no_disp = array(2, 13);
 				foreach ($model -> giveTriggerValuesObjects($model -> triggers) as $tr) {
 					if (!in_array($tr -> trigger -> id,$no_disp)){
 						$column = ($column + 1) % 2;

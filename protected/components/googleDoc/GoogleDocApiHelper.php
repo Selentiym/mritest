@@ -125,7 +125,7 @@
 		public function clinicFromLine($line){
 			$line = array_filter(array_map('trim',$line));
 			//Ищем, есть ли клиника уже в базе данных
-			$clinic = clinics::model() -> findByAttributes(array('verbiage' => $line['verbiage']));
+			$clinic = clinics::model() -> findByAttributes(array('verbiage' => $line['код']));
 			//Создаем, если нет
 			if (!$clinic) {
 				$clinic = new clinics();

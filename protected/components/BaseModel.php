@@ -498,7 +498,7 @@ class BaseModel extends CTModel
 				//print_r($firstline);
 				//echo "123";
 				//return;
-				if (!$this -> findByAttributes(array('verbiage' => $object_arr['verbiage'])))
+				if (!$this -> findByAttributes(array('verbiage' => $object_arr['код'])))
 				{
 					$modelName = get_class($this);
 					$object = new $modelName();
@@ -546,7 +546,7 @@ class BaseModel extends CTModel
 						$errors[$object -> name] = $object -> getErrors();
 					}
 				} else {
-					$exist[] = $object_arr['verbiage'];
+					$exist[] = $object_arr['код'];
 					//echo "exists";
 				}
 				//break;
