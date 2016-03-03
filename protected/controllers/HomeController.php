@@ -545,5 +545,9 @@ class HomeController extends Controller
 	/*public function actionPss() {
 		echo md5('shubinsa7shubinsa'.'unique salt');
 	}*/
+	public function actionMetros(){
+		list($shir, $dolg) = explode(', ','60.015377, 30.301594');
+		giveMetroNamesArrayByAddress('Лиговский проспект, 4');
+	}
 }
 ?>

@@ -691,11 +691,18 @@ class BaseModel extends CTModel
 				}
 			} catch (Exception $e) {}
 			//Пытаемся найти ближайшее метро.
-			/*try {
-				if ($this -> map_coordinates) {
-
+			try {
+				if (($this -> map_coordinates)&&(!$this -> metro_station)) {
+					list($shir, $dolg) = explode(', ',$this -> map_coordinates);
+					$metros = giveMetroNamesArrayByCoords($shir, $dolg);
+					$criteria = new CDbCriteria();
+					$criteria -> addInCondition('name',$metros);
+					$met = Metro::model() -> findAll($criteria);
+					//var_dump(Html::listData($met,'id','id'));
+					$this -> metro_station = implode(';',Html::listData($met,'id','id'));
+					//echo $this -> metro_station;
 				}
-			} catch (Exception $e) {}*/
+			} catch (Exception $e) {}
 			return true;
 		} else {
 			return false;

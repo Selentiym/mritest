@@ -89,3 +89,35 @@ function prepareTextToJS($str) {
     $text = preg_replace($search, $replace, $str);
     return $text;
 }
+
+function giveMetroNamesArrayByCoords($shir,$dolg, $deltax='0.05', $deltay='0.05'){
+    $str = urlencode($deltax.' '.$deltay);
+    $url = "https://geocode-maps.yandex.ru/1.x/?kind=metro&geocode=N{$shir}%20E{$dolg}";//.'&'."rspn=0&spn={$str}";
+    $obj = new SimpleXMLElement(file_get_contents($url));
+    return giveMetrosNamesArrayByXML($obj);
+}
+function giveMetroNamesArrayByAddress($addr, $deltax='0.05', $deltay='0.05'){
+    $addr = urlencode($addr);
+    $url = "https://geocode-maps.yandex.ru/1.x/?kind=metro&geocode=Санкт-Петербург,{$addr}";
+    $obj = new SimpleXMLElement(file_get_contents($url));
+    return giveMetrosNamesArrayByXML($obj);
+}
+function giveMetrosNamesArrayByXML($obj){
+    //var_dump($obj);
+    $obj = $obj -> GeoObjectCollection -> featureMember ;
+    $rez = array();
+    $count = 0;
+    foreach ($obj as $metroObj) {
+        $temp = trim( preg_replace('/метро/','',($metroObj -> GeoObject -> name)));
+        if ($temp != $metroObj -> GeoObject -> name) {
+            $rez[] = $temp;
+            $count ++;
+        }
+        if ($count == 3) {
+            break;
+        }
+    }
+    //var_dump($rez);
+    return array_filter($rez);
+    //var_dump(get_object_vars($obj));
+}
