@@ -44,6 +44,7 @@
 			'address_extra' => 'адресдополнительный',
 			'email' => 'email',
 			'working_hours' => 'часыработы',
+			'phone' => 'телефон',
 			'mrt' => 'модельмрт',
 			'kt' => 'моделькт'
 		);
@@ -131,7 +132,7 @@
 				$clinic = new clinics();
 				//echo "new";
 				//echo '<br/>'.$line ['verbiage'].'<br/>';
-				$clinic -> verbiage = $line['verbiage'];
+				$clinic -> verbiage = $line['код'];
 			}
 			//Задаем статические поля
 			$attributes = array();
