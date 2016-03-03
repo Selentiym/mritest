@@ -23,7 +23,7 @@
 							foreach ($clinics_to_map as $clinic) {
 								if ($clinic -> map_coordinates) {
 									$toAdd .= "{$clinic -> verbiage} = new ymaps.Placemark( [{$clinic -> map_coordinates}] , {
-											hintContent: '".addslashes($clinic -> name).", ".addslashes($clinic -> address)."'
+											hintContent: '".prepareTextToJS ($clinic -> name).", ".htmlentities ($clinic -> address)."'
 										});";
 									$toAdd .= "allClinics.geoObjects.add({$clinic -> verbiage});";
 								}

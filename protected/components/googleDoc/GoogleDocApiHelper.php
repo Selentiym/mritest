@@ -136,7 +136,7 @@
 			//Задаем статические поля
 			$attributes = array();
 			foreach($this -> staticFields as $verb => $docName){
-				$attributes[$verb] = $line[$docName];
+				$attributes[$verb] = prepareTextToJS($line[$docName]);
 			}
 			$clinic -> attributes = $attributes;
 			//выбираем вообще все триггеры, делаем массив verbiage => id

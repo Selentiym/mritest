@@ -56,3 +56,36 @@ function str2url($str) {
     $str = trim($str, "-");
     return $str;
 }
+
+function prepareTextToJS($str) {
+    $search = array ("'<script[^>]*?>.*?</script>'si",  // Вырезает javaScript
+        "'<[\/\!]*?[^<>]*?>'si",           // Вырезает HTML-теги
+        "'([\r\n])[\s]+'",                 // Вырезает пробельные символы
+        "'&(quot|#34);'i",                 // Заменяет HTML-сущности
+        "'&(amp|#38);'i",
+        "'&(lt|#60);'i",
+        "'&(gt|#62);'i",
+        "'&(nbsp|#160);'i",
+        "'&(iexcl|#161);'i",
+        "'&(cent|#162);'i",
+        "'&(pound|#163);'i",
+        "'&(copy|#169);'i",
+        "'&#(\d+);'e");                    // интерпретировать как php-код
+
+    $replace = array ("",
+        "",
+        "\\1",
+        "\"",
+        "&",
+        "<",
+        ">",
+        " ",
+        chr(161),
+        chr(162),
+        chr(163),
+        chr(169),
+        "chr(\\1)");
+
+    $text = preg_replace($search, $replace, $str);
+    return $text;
+}

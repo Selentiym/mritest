@@ -80,7 +80,7 @@ $('.top_form input').click(function () {
 $('.zapis_na_priem').click(function(e) { e.preventDefault(); $('#exampleModal1').arcticmodal();});
 ",CClientScript::POS_READY);
 
-
+/*
 Yii::app()->getClientScript()->registerScript("end","
 //function Zapis (event) { event.preventDefault(); $('#exampleModal1').arcticmodal();}
 var pager = $('#searchForm #page');
@@ -105,10 +105,14 @@ $('#show_rez').click(function(){
 		pager.val(pager.val()*1 + 1);
 	});
 });
+",CClientScript::POS_END);
+*/
+Yii::app() -> getClientScript() -> registerScript('big_button',"
 $('#big_button').click(function(e) {
 	e.preventDefault();
 	$('.bottom_search').slideToggle(1000);
-});",CClientScript::POS_END);
+});
+",CClientScript::POS_END);
 $mrt = (strlen(($fromPage['МРТ'])) > 0 );
 $kt = (strlen(($fromPage['КТ'])) > 0 );
 ?>
