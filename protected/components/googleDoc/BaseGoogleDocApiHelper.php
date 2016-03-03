@@ -30,7 +30,7 @@
 		protected $cachedWork;
 		
 		public function __construct($config = '') {
-			if ($config) {
+			if (!$config) {
 				$config = __DIR__ . DIRECTORY_SEPARATOR . 'config.json';
 			}
 			if (!file_exists($config)) {
