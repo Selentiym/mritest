@@ -29,7 +29,10 @@
 		protected $cachedSpread;
 		protected $cachedWork;
 		
-		public function __construct($config = 'config.json') {
+		public function __construct($config = '') {
+			if ($config) {
+				$config = __DIR__ . DIRECTORY_SEPARATOR . 'config.json';
+			}
 			if (!file_exists($config)) {
 				if (!file_exists(__DIR__ . DIRECTORY_SEPARATOR . $config)) {
 					return;
