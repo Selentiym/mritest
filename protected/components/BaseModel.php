@@ -88,7 +88,7 @@ class BaseModel extends CTModel
 		$objects_filtered = array();
 		//print_r($search);
 		$search = array_filter($search);
-		var_dump($search);
+		//var_dump($search);
 		$filter = array();
 		foreach ($search as $key => $option) {
 			/*if ($key == 'speciality') {
