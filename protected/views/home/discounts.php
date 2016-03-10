@@ -1,31 +1,48 @@
-<?php
-	Yii::app()->getClientScript()->registerScriptFile("https://api-maps.yandex.ru/2.1/?lang=ru_RU");
-	$clinics = clinics::model() -> findAll();
-	$rez = array();
-	foreach ($clinics as $clinic) {
-		//echo $clinic -> name.'-'.$clinic -> map_coordinates."<br/>";
-		if ($clinic -> map_coordinates) {
-			$coordy = array_filter(array_map('trim',explode(',',$clinic -> map_coordinates)));
-			$rez[] = array($clinic -> name , $coordy[0], $coordy[1]);
-			//echo $clinic -> name."<br/>";
-		}
+<!--<div class="main_content">
+	<div class="in_main_content">
+		<div class="in_main_content_left">
+
+		</div>
+		<?php $this -> renderPartial('//layouts/right_column', true,false); ?>
+	</div>
+</div>-->
+<style>
+	.article_left .article_content ul li{
+		text-align:justify;
+		margin-top:10px !important;
 	}
-	Yii::app() -> getClientScript() -> registerScript('map','
-		ymaps.ready(function() {
-			var clinics = JSON.parse(\''.json_encode($rez).'\');
-			var clinicCollection = new ymaps.GeoObjectCollection;
-			clinics.forEach(function(item,i,arr){
-				clinicCollection.add(new ymaps.Placemark([item[1],item[2]],{hintContent:item[0]}));
-			});
-			var myMap = new ymaps.Map("map", {
-				center: [59.939095, 30.315868],
-				zoom: 14
-			}, {
-				searchControlProvider: "yandex#search"
-			})
-			myMap.geoObjects.add(clinicCollection);
-			myMap.setBounds(clinicCollection.getBounds());
-		});
-	',CClientScript::POS_READY);
-?>
-<div id="map" style="width:700px; height:700px;"></div>
+	.article_left .article_content ul a{
+		text-decoration:none;
+	}
+	.article_left .article_content ul a li{
+		margin-top:5px !important;
+		color:#008fd3 !important;
+	}
+	#table_ul{
+		margin-right:20px;
+		margin-top: 40px;
+
+	}
+	#table_ul li{
+		border-top:1px solid #958f8a;
+		padding:5px 10px;
+	}
+	#table_ul li span{
+		display:block;
+	}
+	#table_ul li span:first-child{
+		float:left;
+	}
+	#table_ul li span:nth-child(2){
+		float:right;
+	}
+</style>
+<div class="in_main_content">
+	<div class="in_main_content_left article_left ">
+		<div class="article_content">
+			<img src="<?php echo Yii::app() -> baseUrl; ?>/images/discounts.png"/>
+
+		</div>
+	</div>
+	<?php $this -> renderPartial('//layouts/right_column'); ?>
+</div>

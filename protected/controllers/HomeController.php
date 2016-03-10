@@ -7,12 +7,6 @@ class HomeController extends Controller
 	//public $pageTitle;
 	public function actions(){
 		return array(
-			'discounts'=>array(
-				'class'=>'application.controllers.actions.FileViewAction',
-				'access' => function () {return true;},
-				'view' => '//home/discounts',
-				'everyone' => true
-			),
 			'about'=>array(
 				'class'=>'application.controllers.actions.FileViewAction',
 				'access' => function () {return true;},
@@ -35,6 +29,12 @@ class HomeController extends Controller
 				'class'=>'application.controllers.actions.FileViewAction',
 				'access' => function () {return true;},
 				'view' => '//home/rating',
+				'everyone' => true
+			),
+			'discounts'=>array(
+				'class'=>'application.controllers.actions.FileViewAction',
+				'access' => function () {return true;},
+				'view' => '//home/discounts',
 				'everyone' => true
 			)
 		);
