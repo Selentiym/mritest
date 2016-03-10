@@ -16,6 +16,8 @@
     <div onClick="location.href='<?php echo Yii::app() -> baseUrl;?>/about'">
         <h3>О НАС</h3>
         <p>
+            Нужен хороший врач, клиника или услуги диагностики?
+            Ищите и записывайтесь здесь – это удобно и дешевле, чем в клинике!
         </p>
     </div>
     <div onclick="$('#exampleModal1').arcticmodal()">
