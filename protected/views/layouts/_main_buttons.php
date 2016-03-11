@@ -1,5 +1,5 @@
 <div class="info">
-    <div onClick="location.href='<?php echo Yii::app() -> baseUrl;?>/clinics'">
+    <div onClick="location.href='<?php echo Yii::app() -> baseUrl;?>/clinics?clear=1'">
         <h3>КАТАЛОГ</h3>
         <p>Врачи, Клиники, Диагностические центры – поиск по параметрам
         </p>
