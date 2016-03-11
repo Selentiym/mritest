@@ -11,11 +11,11 @@
                             </a>
                         </div>
                         <div class="doctors">
-                            <a href="#">
+                            <a href="<?php echo Yii::app() -> baseUrl; ?>/doctorsList">
                                 Врачи
                             </a>
                         </div>
-                        <img style="width:350px; display:block; margin:10px 0 0 5px;" src="<?php echo Yii::app() -> baseUrl; ?>/images/right_image.jpg" alt="algorythm"/>
+                        <img style="width:240px; display:block; margin:10px 0 0 5px;" src="<?php echo Yii::app() -> baseUrl; ?>/images/right_image.jpg" alt="algorythm"/>
 						<?php Yii::app()->getClientScript()->registerScriptFile(Yii::app()->baseUrl.'/js/map.js'); ?>
 						<?php Yii::app()->getClientScript()->registerScriptFile("https://api-maps.yandex.ru/2.1/?lang=ru_RU"); ?>
 						<?php 

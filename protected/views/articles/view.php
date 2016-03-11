@@ -13,7 +13,7 @@
 					Ищите и записывайтесь здесь – это удобно и дешевле, чем в клинике!<br/>
 					<br/>
 					Поиск клиники <?php echo CHtml::link('тут...',Yii::app() -> baseUrl.'/clinics?clear=1'); ?><br/>
-					Поиск врача <?php echo CHtml::link('здесь...',Yii::app() -> baseUrl.'/clinics?clear=1'); ?>
+					Поиск врача <?php echo CHtml::link('здесь...',Yii::app() -> baseUrl.'/doctorsList'); ?>
 
 				</div>
 				<?php echo $model -> giveModifyedText(); ?>

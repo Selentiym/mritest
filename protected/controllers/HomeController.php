@@ -7,6 +7,12 @@ class HomeController extends Controller
 	//public $pageTitle;
 	public function actions(){
 		return array(
+			'doctorsList'=>array(
+				'class'=>'application.controllers.actions.FileViewAction',
+				'access' => function () {return true;},
+				'view' => '//static/doctorsWidget',
+				'everyone' => true
+			),
 			'about'=>array(
 				'class'=>'application.controllers.actions.FileViewAction',
 				'access' => function () {return true;},
