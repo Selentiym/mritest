@@ -131,20 +131,21 @@
 
 <div class="row-fluid">
     <div class="span5">
-        <?php echo CHtml::link('Импорт клиник', '', array('class' => 'btn btn-success', 'onclick'=> 'javascript:showImportClinicsForm()')); ?>
+        <?php echo CHtml::link('Импорт клиник', '', array('class' => 'btn btn-success', 'onclick'=> 'location.href="'.Yii::app() -> baseUrl.'/admin/googleDoc";')); ?>
+        <?php //echo CHtml::link('Импорт клиник', '', array('class' => 'btn btn-success', 'onclick'=> 'javascript:showImportClinicsForm()')); ?>
 
-    <div>
-        <?php $this->renderPartial('_import_clinics'); ?>
-    </div>
+    <!--<div>
+        <?php //$this->renderPartial('_import_clinics'); ?>
+    </div>-->
     </div>
     
 
     
-    <div class="span5">
-        <?php echo CHtml::link('Экспорт клиник', Yii::app()->controller->createUrl('admin/clinicsExportCsv'), array('class' => 'btn btn-warning')); ?>
+    <!--<div class="span5">
+        <?php //echo CHtml::link('Экспорт клиник', Yii::app()->controller->createUrl('admin/clinicsExportCsv'), array('class' => 'btn btn-warning')); ?>
     <div>
-        <?php $this->renderPartial('_export_clinics'); ?>
+        <?php //$this->renderPartial('_export_clinics'); ?>
     </div>
-    </div>
+    </div>-->
     
 </div>    

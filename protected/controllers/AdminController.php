@@ -1767,6 +1767,13 @@ class AdminController extends Controller
             /*var_dump($api -> giveData() -> getEntries());
             echo "good";*/
             clinics::importFromGoogleDoc($api);
+            $f = new CustomFlash();
+            $html = $f -> showAll();
+            if (!$html) {
+                $this -> redirect(array('admin/clinics'));
+            }
+            echo "Обнаружены ошибки. Их список можно увидеть ниже. ".CHtml::link('Перейти к админке', '//admin/clinics');
+            echo $html;
         }
     }
     /*public function actionDownloadImages(){

@@ -805,7 +805,6 @@ class BaseModel extends CTModel
 				//Получаем клинику из строки, с уже заданными параметрами.
 				$clinic = $api -> clinicFromLine($clinicLine);
 			}
-			echo $count;
 			return true;
 		} else {
 			return false;
