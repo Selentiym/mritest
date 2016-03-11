@@ -8,6 +8,14 @@
 				<h1><?php echo $model -> name; ?></h1>
 			</div>-->
 			<div class="article_content">
+				<div class="article_top" style="text-align:left; color:black; font-weight:bold; margin-bottom:30px;line-height:27px;margin-left:30px;margin-top: 30px;font-size:20px">
+					Нужен хороший врач, клиника или услуги диагностики?<br/>
+					Ищите и записывайтесь здесь – это удобно и дешевле, чем в клинике!<br/>
+					<br/>
+					Поиск клиники <?php echo CHtml::link('тут...',Yii::app() -> baseUrl.'/clinics?clear=1'); ?><br/>
+					Поиск врача <?php echo CHtml::link('здесь...',Yii::app() -> baseUrl.'/clinics?clear=1'); ?>
+
+				</div>
 				<?php echo $model -> giveModifyedText(); ?>
 				<?php 
 				if ($prev):
