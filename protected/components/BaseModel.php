@@ -780,11 +780,13 @@ class BaseModel extends CTModel
 	 * @var BaseGoogleDocApiHelper $api - api to get data from.
 	 * @return bool - whether the import was successful.
 	 */
-	public static function importFromGoogleDoc(BaseGoogleDocApiHelper $api){
+	public static function importFromGoogleDoc(GoogleDocApiHelper $api){
 		if ($api -> success) {
 			$entries = $api -> giveData() -> getEntries();
 			//echo get_class(current($entries));
 			$count = 0;
+			$num = 0;
+			$total = count($entries);
 			foreach($entries as $entry){
 				if (!is_a($entry,'Google\Spreadsheet\ListEntry')) {
 					continue;
@@ -795,6 +797,11 @@ class BaseModel extends CTModel
 				if ($clinicLine['название'] == 'comment') {
 					continue;
 				}
+
+				if (!$clinicLine['рейтинг']) {
+					$clinicLine['рейтинг'] = $total - $num;
+				}
+				$num ++;
 				//Получаем клинику из строки, с уже заданными параметрами.
 				$clinic = $api -> clinicFromLine($clinicLine);
 			}
