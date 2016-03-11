@@ -370,10 +370,21 @@ $kt = (strlen(($fromPage['КТ'])) > 0 );
 					<input type="button" id="sortByPrice" value="Сортировать по цене" style="cursor:pointer;">
 				</form>
 			</div>
-			<div class="clear"></div>
-			<?php foreach($objects as $obj) {
-				$this -> renderPartial('//home/_single_'.$modelName, array('model' => $obj));
-			} ?>
+
+
+			<?php
+				if (count(array_filter($objects)) == 0) {
+					echo "<p style='background:url(".Yii::app() -> baseUrl."/images/frame.jpg) no-repeat;margin:20px auto; width:300px;height:100px;padding:350px 100px; color:#008fd3'>Не найдено ни одной клиники, удовлетворяющей выбранным Вами параметрам! Подобрать максимально подходящий медицинский центр, Вы можете обратившись в бесплатною службу записи на МРТ и КТ исследования по телефону ".Setting::model() -> find() -> tel."!</p>";
+				}
+				echo '<div class="clear"></div>';
+				if ($modelName == 'clinics') {
+					$this -> renderPartial('//home/_single_'.$modelName, array('model' => clinics::model() -> findByAttributes(array('verbiage' => 'sluzba'))));
+				}
+				foreach($objects as $obj) {
+					if ($obj -> verbiage == 'sluzba')  continue;
+					$this -> renderPartial('//home/_single_'.$modelName, array('model' => $obj));
+				}
+			?>
 			<?php if ($maxPage > 1) : ?>
 			<div class="more_rezult">
 				<button id = "show_rez">Больше результатов</button>
