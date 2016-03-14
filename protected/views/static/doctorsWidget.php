@@ -6,6 +6,7 @@
  * Time: 22:07
  */
 $cityCodes = array(
+    'Санкт-Петербург' => 'spb',
     'Воронеж' => 'vrn',
     'Екатеринбург' => 'ekb',
     'Ижевск' => 'izh',
@@ -20,9 +21,14 @@ $cityCodes = array(
     'Уфа' => 'ufa',
     'Челябинск' => 'chlb'
 );
-$geo = new Geo();
-$code = $cityCodes[$geo -> get_value('city')];
-$code = 'msc';
+if ($_GET['ip']) {
+    $geo = new Geo(array('ip' => $_GET['ip']));
+} else {
+    $geo = new Geo();
+}
+$city = $geo -> get_value('city');
+$code = $cityCodes[$city];
+if (!$code) { $code = 'msc'; }
 Yii::app() -> getClientScript() -> registerScriptFile('https://docdoc.ru/widget/js', CClientScript::POS_END);
 Yii::app() -> getClientScript() -> registerScript('useWidget',"
     DdWidget({
