@@ -5,6 +5,24 @@
  * Date: 11.03.2016
  * Time: 22:07
  */
+$cityCodes = array(
+    'Воронеж' => 'vrn',
+    'Екатеринбург' => 'ekb',
+    'Ижевск' => 'izh',
+    'Казань' => 'kazan',
+    'Краснодар' => 'krd',
+    'Московская область' => 'mo',
+    'Нижний Новгород' => 'nn',
+    'Новосиб' => 'nsk',
+    'Пермь' => 'perm',
+    'Ростов-на-Дону' => 'rnd',
+    'Самара' => 'samara',
+    'Уфа' => 'ufa',
+    'Челябинск' => 'chlb'
+);
+$geo = new Geo();
+$code = $cityCodes[$geo -> get_value('city')];
+$code = 'msc';
 Yii::app() -> getClientScript() -> registerScriptFile('https://docdoc.ru/widget/js', CClientScript::POS_END);
 Yii::app() -> getClientScript() -> registerScript('useWidget',"
     DdWidget({
@@ -16,7 +34,7 @@ Yii::app() -> getClientScript() -> registerScript('useWidget',"
 		pid: '7159',
 		container: 'DDWidgetDoctorList',
 		action: 'LoadWidget',
-		city: 'spb'
+		city: '".$code."'
 	});
 ", CClientScript::POS_READY);
 
