@@ -463,8 +463,9 @@ class HomeController extends Controller
 			}//*/
 		} else {
 			header('HTTP/1.1 404 Not Found');
-			Yii::app() -> end();
+
 			$this -> renderPartial('//sysytem/error404');
+			Yii::app() -> end();
 		}
 		//echo "in construct";
 	}
