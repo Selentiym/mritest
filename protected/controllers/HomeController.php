@@ -193,7 +193,11 @@ class HomeController extends Controller
 		$verbiage = explode("/",$verbiage);
 		//$article_array = Articles::model() -> giveArticleContent(trim(end($verbiage)));
 		$article_array = Articles::model() -> giveArticleContent($verbiage);
-		
+		if (!$article_array['article']) {
+			header('HTTP/1.1 404 Not Found');
+			$this -> renderPartial('//system/error404');
+			Yii::app() -> end();
+		}
 		//meta tags
 		Yii::app()->clientScript->registerMetaTag($article_array['article']->keywords, 'keywords');
 		Yii::app()->clientScript->registerMetaTag($article_array['article']->description, 'description');
@@ -458,10 +462,10 @@ class HomeController extends Controller
 				));
 			}//*/
 		} else {
-			$this -> render('//site/error', array(
-				'code' => '404',
-				'message' => 'Не найден объект типа '.$modelName.' с адресом '. $verbiage.'.'
-			));
+			header('HTTP/1.1 404 Not Found');
+			$this -> renderPartial();
+			Yii::app() -> end();
+			$this -> renderPartial('//sysytem/error404');
 		}
 		//echo "in construct";
 	}
