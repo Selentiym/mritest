@@ -526,7 +526,57 @@ class HomeController extends Controller
 			$this->render($modelName.'Other', array('model' => $object, 'add_comment' => $model, 'isNew' => $isNew));*/
 		}
 	}
-	public function actionAssignCall() {
+	public function actionAssignCall(){
+		$adminemail="shubinsa1@gmail.com";  // e-mail админа
+		//$adminemail="bondartsev.nikita@gmail.com";  // e-mail админа
+
+		$date=date("d.m.y"); // число.месяц.год
+
+		$time=date("H:i"); // часы:минуты:секунды
+
+		$name = trim($_GET["name"]);
+		$phone = trim($_GET["tel"]);
+
+		$theme="Заказ с сайта mritest";
+
+
+		$headers = "From: mritest@mail.ru\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-type: text/html\r\n";
+		$text = "Дата: <strong>{$date}</strong><br/>";
+		$text .= "Время: <strong>{$time}</strong><br/>";
+		$text .= "Имя: <strong>{$name}</strong><br/>";
+		$text .= "Телефон: <strong>{$phone}</strong><br/>";
+
+		require_once(Yii::getPathOfAlias('webroot.vendor') . DIRECTORY_SEPARATOR . 'autoload.php');
+		$mail = new PHPMailer(true);
+		$mail->IsSMTP();
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = 465;
+		$mail->SMTPSecure = 'ssl';
+		$mail->SMTPAuth = true;
+		$mail->Username = 'mrimaster.msk@gmail.com';
+		$mail->Password = include(Yii::getpathOfAlias('application.components') . '/mrimaster.pss.php');
+		$mail->Mailer = "smtp";
+
+		$mail->From = 'directors@mrimaster.ru';
+		$mail->FromName = 'mritest.ru';
+		$mail->Sender = 'directors@mrimaster.ru';
+		$mail->CharSet = "UTF-8";
+		$mail->addAddress($adminemail);
+		//$mail->addAddress('lg.operator.2@gmail.com');
+		//$mail->addAddress('olga.seadorova@gmail.com');
+
+		$mail->Subject = $theme;
+		$mail->isHtml(true);
+		$mail->Body = $text;
+		if ($mail->Send()) {
+			echo "ok";
+		} else {
+			echo "bad";
+		}
+	}
+	public function actionAssignCallOld() {
 		$date=date("d.m.y"); // число.месяц.год 
 		$time=date("H:i"); // часы:минуты:секунды 		
 		$headers = "From: test@mail.ru\r\n";

@@ -1,6 +1,6 @@
 #ignore all archives
 *.[oa]
-
+*.rar
 #ignore bash and php files that are used to link hub and live site.
 phpPull
 phpPush
@@ -16,3 +16,5 @@ date.d
 #images/clinics/**/*
 #ignore the runtime folder filled with often updated data
 protected/runtime/**/*
+#ignore all password files
+*.pss.php
