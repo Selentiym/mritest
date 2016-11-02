@@ -1,6 +1,13 @@
 {
   "require": {
     "asimlqt/php-google-spreadsheet-client": "2.3.*",
-    "google/apiclient":">=1"
-  }
+    "google/apiclient":">=1",
+    "PHPMailer/PHPMailer":"*"
+  },
+  "repositories": [
+    {
+      "type" : "git",
+      "url" : "https://github.com/PHPMailer/PHPMailer"
+    }
+  ]
 }
