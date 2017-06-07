@@ -37,7 +37,7 @@ Yii::app() -> getClientScript() -> registerScript('useWidget',"
 		template: 'DoctorListVitaPortal_640',
 		limit: '15',
 		theme: 'DoctorList/theme5',
-		pid: '7159',
+		pid: '2747',
 		container: 'DDWidgetDoctorList',
 		action: 'LoadWidget',
 		city: '".$code."'

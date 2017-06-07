@@ -18,3 +18,6 @@ date.d
 protected/runtime/**/*
 #ignore all password files
 *.pss.php
+/images/
+/vendor/
+*.swp

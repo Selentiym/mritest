@@ -564,7 +564,7 @@ class HomeController extends Controller
 		$mail->Sender = 'directors@mrimaster.ru';
 		$mail->CharSet = "UTF-8";
 		$mail->addAddress($adminemail);
-		//$mail->addAddress('lg.operator.2@gmail.com');
+		$mail->addAddress('nik_bondar@mail.ru');
 		//$mail->addAddress('olga.seadorova@gmail.com');
 
 		$mail->Subject = $theme;
